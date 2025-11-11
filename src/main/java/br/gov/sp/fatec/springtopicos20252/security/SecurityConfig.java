@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-// Importe o HttpMethod
 import org.springframework.http.HttpMethod; 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -46,6 +45,12 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.POST, "/login").permitAll()
                     .requestMatchers(HttpMethod.POST, "/usuario").permitAll()
                     .requestMatchers(HttpMethod.GET, "/usuario").permitAll()
+                    // Rotas adicionadas
+                    .requestMatchers(HttpMethod.GET, "/lista").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/item").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/item").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/item/buscar").permitAll()
+                    // Fim das rotas adicionadas
                     .anyRequest().authenticated()
                 )
 
